@@ -12,12 +12,9 @@ namespace BilAfgift_TcpServer
     public class Program
     {
         public static TcpListener serverSocket = new TcpListener(IPAddress.Any, 6789);
-
-
         static void Main(string[] args)
         {
             //IPAddress ip = IPAddress.Parse("192.168.0.13");
-
             Console.WriteLine("Server Starter");
             serverSocket.Start();
 
@@ -28,10 +25,6 @@ namespace BilAfgift_TcpServer
                 TcpServerService service = new TcpServerService(connectionSocket);
                 Task.Factory.StartNew(() => service.DoIt());
             }
-
-
-
-
             serverSocket.Stop();
         }
     }
